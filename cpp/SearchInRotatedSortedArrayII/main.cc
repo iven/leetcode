@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cassert>
 #include <vector>
 
 using namespace std;
@@ -37,19 +37,19 @@ int main(void)
   Solution solution;
   vector<int> nums = {2, 4, 5, 6, 7, 0, 1, 2, 2};
 
-  for (auto target : nums) {
-    cout << solution.search(nums, target) << endl;
+  for (int i = 0; i < nums.size(); ++i) {
+    assert(solution.search(nums, nums[i]) == i);
   }
-  cout << solution.search(nums, -1) << endl;
+  assert(solution.search(nums, -1) == -1);
 
   nums = {1};
-  cout << solution.search(nums, 2) << endl;
+  assert(solution.search(nums, 2) == -1);
 
   nums = {1, 2};
-  cout << solution.search(nums, 2) << endl;
+  assert(solution.search(nums, 2) == 1);
 
   nums = {3, 1, 2};
-  cout << solution.search(nums, 2) << endl;
+  assert(solution.search(nums, 2) == 2);
 
   return 0;
 }

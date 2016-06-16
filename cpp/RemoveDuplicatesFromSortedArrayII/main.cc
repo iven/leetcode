@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cassert>
 #include <vector>
 
 using namespace std;
@@ -26,11 +26,10 @@ int main(void)
 {
   Solution solution;
   vector<int> nums = {1, 1, 2, 3, 3, 3, 5, 6};
+  vector<int> result = {1, 1, 2, 3, 3, 5, 6};
   int length = solution.removeDuplicates(nums);
 
-  for (auto num : nums) {
-    cout << num << endl;
-  }
-  cout << "Length: " << length << endl;
+  assert(length == 7);
+  assert(equal(nums.begin(), nums.begin() + length, result.begin()));
   return 0;
 }
